@@ -12,7 +12,7 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                   Yetkiniz yok.
+                   Bu Sayfa'ya Erişim Yetkiniz Yok !
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
@@ -27,18 +27,15 @@
               <a href = "/admin/users/add" class="btn btn-primary">Yeni Ekle</a>
                   <% } %>
               <% if(messages[0]){ %>
-                
                  <div class="alert alert-success alert-dismissible fade show" style="width: 300px; float: right;" role="alert">
                    <%= messages %>
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-              
               <% } else { %>
               
-                <% } %>
-            
+              <% } %>
               <div class="card card-plain">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title mt-0"> Tüm Kullanıcılar</h4>
@@ -47,46 +44,24 @@
                   <div class="table-responsive">
                     <table id="userList" class="table table-hover">
                       <thead class="">
-                        <th>
-                          ID
-                        </th>
-                        <th>
-                          Email
-                        </th>
-                        <th>
-                          Oyuncu Adı
-                        </th>
-                        <th>
-                          İsim güncelleme tarihi
-                        </th>
-                        <th>
-                          IP Adresi
-                        </th>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Oyuncu Adı</th>
+                        <th>Nick Güncelleme Tarihi</th>
+                        <th>IP Adresi</th>
                         <th>
                         </th>
                       </thead>
                       <tbody>
-                        <% users.forEach(foundUser => { %>
+                      <% users.forEach(foundUser => { %>
                         <tr class = "nick">
+                          <td><%= foundUser.ID %></td>
+                          <td><%= foundUser.Email %></td>
+                          <td><%= foundUser.PlayerNick %></td>
+                          <td><%= foundUser.NickUpdateDate %></td>
+                          <td><%= foundUser.ipAdress %></td>
                           <td>
-                            <%= foundUser.ID %>
-                          </td>
-                          <td>
-                            <%= foundUser.Email %>
-                          </td>
-                          <td>
-                            <%= foundUser.PlayerNick %>
-                          </td>
-                          <td>
-                            <%= foundUser.NickUpdateDate %>
-                          </td>
-                          <td>
-                            <%= foundUser.ipAdress %>
-                          </td>
-                          <td>
-  
                             <% if(user.Role === "Kurucu"){ %>
-                              
                             <a href="/admin/edit/user/<%= foundUser.ID %>" class="btn btn-primary">Düzenle</a>&nbsp; &nbsp; <a class="btn btn-danger" onclick="return confirm('<%= foundUser.PlayerNick %> adlı kişiyi silmek istediğinizden emin misiniz?')" href="/admin/delete/user/<%= foundUser.ID %>">Sil</a>
                             <% }  else { %>
                               <% if(user.Role === "Admin"){ %>
@@ -97,9 +72,9 @@
                                 <% } %>
                               <% } %>
                             <% } %>
-                            </td>
+                          </td>
                         </tr>
-                        <% }) %>
+                      <% }) %>
                       </tbody>
                     </table>
                   </div>

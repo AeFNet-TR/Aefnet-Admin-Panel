@@ -18,7 +18,7 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                       Yetkiniz yok.
+                        Bu Sayfa'ya Erişim Yetkiniz Yok !
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
@@ -30,42 +30,22 @@
                   <div class="table-responsive">
                     <table id="userList" class="table table-hover">
                       <thead class="">
-                        <th>
-                          ID
-                        </th>
-                        <th>
-                          Email
-                        </th>
-                        <th>
-                          Oyuncu Adı
-                        </th>
-                        <th>
-                          İsim güncelleme tarihi
-                        </th>
-                        <th>
-                          IP Adresi
-                        </th>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Oyuncu Adı</th>
+                        <th>Nick Güncelleme Tarihi</th>
+                        <th>IP Adresi</th>
                         <th>
                         </th>
                       </thead>
                       <tbody>
-                        <% hesaplar.forEach((hesap) => { %>
+                      <% hesaplar.forEach((hesap) => { %>
                         <tr class="nick">
-                          <td>
-                            <%= hesap.ID %>
-                          </td>
-                          <td>
-                            <%= hesap.Email %>
-                          </td>
-                          <td>
-                            <%= hesap.PlayerNick %>
-                          </td>
-                          <td>
-                            <%= hesap.NickUpdateDate %>
-                          </td>
-                          <td>
-                            <%= hesap.ipAdress %>
-                          </td>
+                          <td><%= hesap.ID %></td>
+                          <td><%= hesap.Email %></td>
+                          <td><%= hesap.PlayerNick %></td>
+                          <td><%= hesap.NickUpdateDate %></td>
+                          <td><%= hesap.ipAdress %></td>
                           <td>
                             <% if(user.Role === "Moderator"){ %>
                               <a onclick="return confirm('<%= hesap.PlayerNick %> adlı kişiye hesap banı atılacaktır. Onaylıyor musunuz?')" href="/admin/ban/account/<%= hesap.PlayerNick %>" class="btn btn-danger">Hesap Banı At</a>&nbsp; &nbsp; <a data-toggle="modal" data-target="#modalError" class="btn btn-danger">Hwid Ban At</a>
@@ -75,7 +55,7 @@
                              
                           </td>
                         </tr>
-                        <% }) %>
+                      <% }) %>
                       </tbody>
                     </table>
                   </div>
