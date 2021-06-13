@@ -15622,7 +15622,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 
 .fixed-plugin {
   position: fixed;
-  top: 115px;
+  top: 42px;
   right: 0;
   width: 64px;
   background: rgba(0, 0, 0, 0.3);
