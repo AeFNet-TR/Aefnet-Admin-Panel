@@ -1,0 +1,80 @@
+<%- include("../partials/header") %>
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Duyuru Ayarları</h4>
+            </div>
+            <div class="card-body">
+              <form method = "POST">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Duyuru</label>
+                      <div class="form-group">
+                        <textarea class="form-control" name = "mesaj" rows="5"><%= duyuru.Duyuru_Mesaj %></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect1">Durum</label>
+                      <select class="form-control" name="status" id="exampleFormControlSelect1">
+                        <option class = "text-dark"><%= duyuru.Duyuru_Status %></option>
+                        <% if(duyuru.Duyuru_Status === "Aktif"){ %>
+                          <option class="text-dark">Pasif</option>
+                        <% } else { %>
+                          <option class="text-dark">Aktif</option>
+                        <% } %>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <button type = "submit" class="btn btn-primary pull-right">Güncelle</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Nick Ayarları</h4>
+            </div>
+            <div class="card-body">
+              <form method = "POST">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Mesaj</label>
+                      <div class="form-group">
+                        <textarea class="form-control" name = "nick_mesaj" rows="5"><%= nick.Nick_Mesaj %></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect1">Durum</label>
+                      <select class="form-control" name="nick_status" id="exampleFormControlSelect1">
+                        <option class = "text-dark"><%= nick.Nick_Status %></option>
+                        <% if(nick.Nick_Status === "Aktif"){ %>
+                          <option class="text-dark">Pasif</option>
+                        <% } else { %>
+                          <option class="text-dark">Aktif</option>
+                        <% } %>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right">Güncelle</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      <%- include("../partials/footer") %>

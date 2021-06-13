@@ -1,0 +1,59 @@
+<%- include("../partials/header") %>
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+                <a href="/admin/add/competent" class="btn btn-primary">Yeni Ekle</a>
+              <div class="card card-plain">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title mt-0"> Yetkililer</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead class="">
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Kullanıcı Adı
+                        </th>
+                        <th>
+                          Şifre
+                        </th>
+                        <th>
+                          Rolü
+                        </th>
+                        <th>
+                        </th>
+                      </thead>
+                      <tbody>
+                        <% competents.forEach(c => { %>
+                        <tr>
+                          <td>
+                            <%= c.ID %>
+                          </td>
+                          <td>
+                            <%= c.Username %>
+                          </td>
+                          <td>
+                            <%= c.Password %>
+                          </td>
+                          <td>
+                            <%= c.Role %>
+                          </td>
+                          <td>
+                              <a href="/admin/competent/edit/<%= c.ID %>" class="btn btn-primary">Düzenle</a>&nbsp; &nbsp; <a href="/admin/competent/delete/<%= c.ID %>" class="btn btn-danger" onclick="return confirm('Silmek istediğinizden emin misiniz?')">Sil</a>
+                          </td>
+                        </tr>
+                        <% }) %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+ <%- include("../partials/footer") %>

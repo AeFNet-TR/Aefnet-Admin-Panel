@@ -1,0 +1,88 @@
+<%- include("../partials/header") %>
+
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card card-plain">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title mt-0"> Tüm Kullanıcılar</h4>
+                </div>
+                <div class="modal fade" id="modalError" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Hata Mesajı</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                       Yetkiniz yok.
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table id="userList" class="table table-hover">
+                      <thead class="">
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Email
+                        </th>
+                        <th>
+                          Oyuncu Adı
+                        </th>
+                        <th>
+                          İsim güncelleme tarihi
+                        </th>
+                        <th>
+                          IP Adresi
+                        </th>
+                        <th>
+                        </th>
+                      </thead>
+                      <tbody>
+                        <% hesaplar.forEach((hesap) => { %>
+                        <tr class="nick">
+                          <td>
+                            <%= hesap.ID %>
+                          </td>
+                          <td>
+                            <%= hesap.Email %>
+                          </td>
+                          <td>
+                            <%= hesap.PlayerNick %>
+                          </td>
+                          <td>
+                            <%= hesap.NickUpdateDate %>
+                          </td>
+                          <td>
+                            <%= hesap.ipAdress %>
+                          </td>
+                          <td>
+                            <% if(user.Role === "Moderator"){ %>
+                              <a onclick="return confirm('<%= hesap.PlayerNick %> adlı kişiye hesap banı atılacaktır. Onaylıyor musunuz?')" href="/admin/ban/account/<%= hesap.PlayerNick %>" class="btn btn-danger">Hesap Banı At</a>&nbsp; &nbsp; <a data-toggle="modal" data-target="#modalError" class="btn btn-danger">Hwid Ban At</a>
+                            <% } else { %>
+                              <a onclick="return confirm('<%= hesap.PlayerNick %> adlı kişiye hesap banı atılacaktır. Onaylıyor musunuz?')" href="/admin/ban/account/<%= hesap.PlayerNick %>" class="btn btn-danger" >Hesap Banı At</a>&nbsp; &nbsp; <a onclick="return confirm('<%= hesap.PlayerNick %> adlı kişiye hwid banı atılacaktır. Onaylıyor musunuz?')" href="/admin/ban/hwid/<%= hesap.PlayerNick %>" class="btn btn-danger">Hwid Ban At</a>
+                            <% } %>
+                             
+                          </td>
+                        </tr>
+                        <% }) %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+ <%- include("../partials/footer") %>
