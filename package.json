@@ -1,19 +1,20 @@
 {
   "name": "aefnet_panel",
   "version": "1.0.0",
-  "description": "aefnet",
-  "main": "app.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon index.js"
   },
-  "keywords": [
-    "aefnet"
-  ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "connect-flash": "^0.1.1",
+    "datatable": "^2.0.2",
+    "datatables.net": "^1.10.25",
+    "datatables.net-dt": "^1.10.25",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
