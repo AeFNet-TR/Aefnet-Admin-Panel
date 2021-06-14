@@ -47,6 +47,6 @@ router.get("/edit/competent", loggedIn, competentController.getCompetentEditPage
 router.get("/add/competent",  loggedIn,competentController.getCompetentAddPage);
 router.post("/add/competent", loggedIn, competentController.postCompetentAddPage);
 
-router.get("/delete/user/:id", loggedIn,modController,usersController.getUserDeletePage);
+router.get("/delete/user/:id", loggedIn, usersController.getUserDeletePage);
 
 module.exports = router;

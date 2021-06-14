@@ -15622,7 +15622,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 
 .fixed-plugin {
   position: fixed;
-  top: 115px;
+  top: 42px;
   right: 0;
   width: 64px;
   background: rgba(0, 0, 0, 0.3);
@@ -20442,11 +20442,11 @@ Copyright (c) 2015 Daniel Eden
 
 .dark-edition .sidebar[data-background-color="black"] .nav li:not(.active) a,
 .dark-edition .sidebar[data-background-color="black"] .nav li:not(.active) .dropdown-menu a {
-  color: #a9afbbd1;
+  color: #d2d2d2;
 }
 
 .dark-edition .sidebar[data-background-color="black"] .nav li:not(.active) i {
-  color: #a9afbbd1;
+  color: #999999;
 }
 
 .dark-edition .sidebar[data-background-color="black"] .nav li:not(.active):not(.active):hover>a,
@@ -20458,12 +20458,12 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .dark-edition .sidebar .logo .simple-text {
-  color: #a9afbbd1;
+  color: #00bcd4e0;
   font-weight: 300;
 }
 
 .dark-edition .sidebar .logo:after {
-  background-color: rgba(180, 180, 180, 0.1);
+  background-color: #00bcd4e0;
 }
 
 .dark-edition .navbar:not([class*="bg-"]) .navbar-brand,
@@ -20542,7 +20542,7 @@ Copyright (c) 2015 Daniel Eden
 
 .dark-edition .card .card-header.card-header-text .card-title,
 .dark-edition .card .card-header.card-header-icon .card-title {
-  color: #606477;
+  color: #999999;
 }
 
 .dark-edition .card .card-header.card-header-tabs .nav-tabs-title {
@@ -20559,16 +20559,16 @@ Copyright (c) 2015 Daniel Eden
 
 .dark-edition .card .card-body .card-category,
 .dark-edition .card .card-body .card-title {
-  color: #8b92a9;
+  color: #fafafae8;
 }
 
 .dark-edition .card .card-body .card-description {
-  color: #606477;
+  color: #d2d2d2bd;
 }
 
 .dark-edition .card .card-body+.card-footer .stats,
 .dark-edition .card .card-footer .stats {
-  color: #a9afbbd1;
+  color: #999999;
 }
 
 .dark-edition .card .card-footer .stats a {
@@ -20644,7 +20644,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .dark-edition .card-stats .card-header .card-category:not([class*="text-"]) {
-  color: #8b92a9;
+  color: #d2d2d2;
 }
 
 .dark-edition .card-stats .card-header+.card-footer {
@@ -20676,7 +20676,7 @@ Copyright (c) 2015 Daniel Eden
 .dark-edition .table>thead>tr>td,
 .dark-edition .table>tbody>tr>td,
 .dark-edition .table>tfoot>tr>td {
-  color: #8b92a9;
+  color: #ffffffbd;
   border-color: rgba(180, 180, 180, 0.1);
 }
 

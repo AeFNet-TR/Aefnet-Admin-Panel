@@ -14,7 +14,7 @@
                     <div class="form-group">
                       <label>Duyuru</label>
                       <div class="form-group">
-                        <textarea class="form-control obstacle" name = "mesaj" rows="5" required><%= duyuru.Duyuru_Mesaj %></textarea>
+                        <textarea class="form-control" name = "mesaj" rows="5"><%= duyuru.Duyuru_Mesaj %></textarea>
                       </div>
                     </div>
                   </div>
@@ -50,7 +50,7 @@
                     <div class="form-group">
                       <label>Mesaj</label>
                       <div class="form-group">
-                        <textarea class="form-control obstacle" name = "nick_mesaj" rows="5" required><%= nick.Nick_Mesaj %></textarea>
+                        <textarea class="form-control" name = "nick_mesaj" rows="5"><%= nick.Nick_Mesaj %></textarea>
                       </div>
                     </div>
                   </div>
@@ -77,9 +77,4 @@
       </div>
     </div>
   </div>
-  <script>$(".obstacle").keyup(function (){
-    if (this.value.match(/[^a-z0-9-]/g)){
-       this.value = this.value.replace(/[^a-z0-9-]/g,'');
-    }
- });</script>
       <%- include("../partials/footer") %>
