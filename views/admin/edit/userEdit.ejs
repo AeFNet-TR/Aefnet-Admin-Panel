@@ -1,0 +1,57 @@
+<%- include('../../partials/header') %>
+
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Kullanıcı Düzenle</h4>
+            </div>
+            <div class="card-body">
+              <form method="POST">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Email</label>
+                      <input type="email" name = "email" value="<%= foundUser.Email %>" class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Şifre</label>
+                      <input type="text" name = "password" value="<%= foundUser.Password %>" class="form-control" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Oyuncu Adı</label>
+                      <input type="text" name = "playerNick" value="<%= foundUser.PlayerNick %>" class="form-control username" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Son nick değiştirme tarihi</label>
+                      <input type="text" name = "nickUpdateDate" value="<%= foundUser.NickUpdateDate %>" class="form-control" required>
+                    </div>
+                  </div>
+                </div>
+                <a href="/admin/users" class="btn btn-danger pull-left">İptal</a>
+                <button type="submit" class="btn btn-primary pull-right">Güncelle</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>$(".username").keyup(function (){
+    if (this.value.match(/[^a-z0-9-]/g)){
+       this.value = this.value.replace(/[^a-z0-9-]/g,'');
+    }
+ });</script>
+
+  <%- include('../../partials/footer') %>
