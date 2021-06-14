@@ -1,8 +1,13 @@
 {
   "name": "aefnet_panel",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "aefnet",
   "main": "app.js",
+=======
+  "description": "",
+  "main": "index.js",
+>>>>>>> parent of d7721bc (Update package.json)
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
