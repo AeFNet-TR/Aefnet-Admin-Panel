@@ -10,7 +10,7 @@ const Duyuru_Ayar = sequelize.define('Duyuru_Setting', {
     },
     Duyuru_Mesaj : {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     Duyuru_Status: {
         type: Sequelize.ENUM("Aktif","Pasif"),

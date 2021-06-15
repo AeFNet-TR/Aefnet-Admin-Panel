@@ -14,13 +14,13 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Email</label>
-                      <input type="email" name = "email" value="<%= foundUser.Email %>" class="form-control" required>
+                      <input type="email" name = "email" maxlength="30" value="<%= foundUser.Email %>" class="form-control" required>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Şifre</label>
-                      <input type="text" name = "password" value="<%= foundUser.Password %>" class="form-control" required>
+                      <input type="text" name = "password" value="<%= foundUser.Password %>" maxlength="20" class="form-control" required>
                     </div>
                   </div>
                 </div>
@@ -28,7 +28,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Oyuncu Adı</label>
-                      <input type="text" name = "playerNick" value="<%= foundUser.PlayerNick %>" class="form-control username" required>
+                      <input type="text" name = "playerNick" value="<%= foundUser.PlayerNick %>" maxlength="12" class="form-control username" required>
                     </div>
                   </div>
                   <div class="col-md-6">

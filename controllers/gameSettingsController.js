@@ -6,6 +6,7 @@ module.exports.gameSettingsController = (req,res) => {
     Duyuru_ayar.findOne({where: {ID: 1}})
     .then(duyuru => {
 
+
         PlayerNick_Settings.findOne({where: {ID: 1}})
         .then(nick => {
             res.render("admin/gameSettings", {duyuru,nick});

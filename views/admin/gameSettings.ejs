@@ -1,5 +1,23 @@
 <%- include("../partials/header") %>
 <div class="content">
+  <div class="modal fade" id="modalError" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Hata Mesajı</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Bu işlemi PhpMyAdmin'den yapınız.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6">
@@ -14,7 +32,11 @@
                     <div class="form-group">
                       <label>Duyuru</label>
                       <div class="form-group">
-                        <textarea class="form-control obstacle" name = "mesaj" rows="5" required><%= duyuru.Duyuru_Mesaj %></textarea>
+                        <% if(duyuru === null){ %>
+                        <textarea class="form-control obstacle" name = "mesaj" rows="5" required></textarea>
+                        <% } else { %>
+                          <textarea class="form-control obstacle" name = "mesaj" rows="5" required><%= duyuru.Duyuru_Mesaj %></textarea>
+                        <% } %>
                       </div>
                     </div>
                   </div>
@@ -22,17 +44,26 @@
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">Durum</label>
                       <select class="form-control" name="status" id="exampleFormControlSelect1">
-                        <option class = "text-dark"><%= duyuru.Duyuru_Status %></option>
-                        <% if(duyuru.Duyuru_Status === "Aktif"){ %>
-                          <option class="text-dark">Pasif</option>
-                        <% } else { %>
+                      <% if(duyuru === null){ %>
                           <option class="text-dark">Aktif</option>
-                        <% } %>
+                          <option class="text-dark">Pasif</option>
+                      <% } else { %>
+                      <option class = "text-dark"><%= duyuru.Duyuru_Status %></option>
+                    <% if(duyuru.Duyuru_Status === "Aktif"){ %>
+                        <option class="text-dark">Pasif</option>
+                      <% } else { %>
+                        <option class="text-dark">Aktif</option>
+                      <% } %>
+                    <% } %>
                       </select>
                     </div>
                   </div>
                 </div>
-                <button type = "submit" class="btn btn-primary pull-right">Güncelle</button>
+                <% if(duyuru === null){ %>
+                  <button data-toggle="modal" data-target="#modalError" class="btn btn-primary pull-right" >Güncelle</button>
+                <% } else { %>
+                  <button type = "submit" class="btn btn-primary pull-right">Güncelle</button>
+                <% } %>
                 <div class="clearfix"></div>
               </form>
             </div>
@@ -50,7 +81,11 @@
                     <div class="form-group">
                       <label>Mesaj</label>
                       <div class="form-group">
-                        <textarea class="form-control obstacle" name = "nick_mesaj" rows="5" required><%= nick.Nick_Mesaj %></textarea>
+                        <% if(nick === null){ %>
+                        <textarea class="form-control obstacle" name = "nick_mesaj" rows="5" required></textarea>
+                        <% } else { %>
+                          <textarea class="form-control obstacle" name = "nick_mesaj" rows="5" required><%= nick.Nick_Mesaj %></textarea>
+                        <% } %>
                       </div>
                     </div>
                   </div>
@@ -58,17 +93,26 @@
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">Durum</label>
                       <select class="form-control" name="nick_status" id="exampleFormControlSelect1">
-                        <option class = "text-dark"><%= nick.Nick_Status %></option>
-                        <% if(nick.Nick_Status === "Aktif"){ %>
-                          <option class="text-dark">Pasif</option>
-                        <% } else { %>
+                        <% if(nick === null){ %>
                           <option class="text-dark">Aktif</option>
-                        <% } %>
+                          <option class="text-dark">Pasif</option>
+                      <% } else { %>
+                      <option class = "text-dark"><%= nick.Nick_Status %></option>
+                    <% if(nick.Nick_Status === "Aktif"){ %>
+                        <option class="text-dark">Pasif</option>
+                      <% } else { %>
+                        <option class="text-dark">Aktif</option>
+                      <% } %>
+                    <% } %>
                       </select>
                     </div>
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary pull-right">Güncelle</button>
+                <% if(nick === null){ %>
+                  <button data-toggle="modal" data-target="#modalError" class="btn btn-primary pull-right" >Güncelle</button>
+                <% } else { %>
+                  <button type = "submit" class="btn btn-primary pull-right">Güncelle</button>
+                <% } %>
                 <div class="clearfix"></div>
               </form>
             </div>
