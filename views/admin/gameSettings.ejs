@@ -45,8 +45,8 @@
                       <label for="exampleFormControlSelect1">Durum</label>
                       <select class="form-control" name="status" id="exampleFormControlSelect1">
                       <% if(duyuru === null){ %>
-                          <option class="text-dark">Aktif</option>
                           <option class="text-dark">Pasif</option>
+                          <option class="text-dark">Aktif</option>
                       <% } else { %>
                       <option class = "text-dark"><%= duyuru.Duyuru_Status %></option>
                     <% if(duyuru.Duyuru_Status === "Aktif"){ %>
@@ -94,8 +94,8 @@
                       <label for="exampleFormControlSelect1">Durum</label>
                       <select class="form-control" name="nick_status" id="exampleFormControlSelect1">
                         <% if(nick === null){ %>
-                          <option class="text-dark">Aktif</option>
                           <option class="text-dark">Pasif</option>
+                          <option class="text-dark">Aktif</option>
                       <% } else { %>
                       <option class = "text-dark"><%= nick.Nick_Status %></option>
                     <% if(nick.Nick_Status === "Aktif"){ %>
@@ -126,4 +126,5 @@
        this.value = this.value.replace(/[^a-z0-9-]/g,'');
     }
  });</script>
+
       <%- include("../partials/footer") %>
