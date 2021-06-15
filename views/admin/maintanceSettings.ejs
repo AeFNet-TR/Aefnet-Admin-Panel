@@ -14,7 +14,11 @@
                     <div class="form-group">
                       <label>Mesaj</label>
                       <div class="form-group">
-                        <textarea class="form-control obstacle" name = "mesaj" rows="5" required><%= oyun_setting.Bakim_Mesaj %></textarea>
+                        <% if(oyun_setting === null){ %>
+                          <textarea class="form-control obstacle" name = "mesaj" rows="5" required></textarea>
+                        <% } else { %>
+                          <textarea class="form-control obstacle" name = "mesaj" rows="5" required><%= oyun_setting.Bakim_Mesaj %></textarea>
+                        <% } %>
                       </div>
                     </div>
                   </div>
@@ -22,12 +26,17 @@
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">Durum</label>
                       <select class="form-control" name="status" id="exampleFormControlSelect1">
-                         <option class = "text-dark"><%= oyun_setting.Bakim_Status %></option>
-                        <% if(oyun_setting.Bakim_Status === "Aktif"){ %>
+                        <% if(oyun_setting === null){ %>
                           <option class="text-dark">Pasif</option>
-                        <% } else { %>
                           <option class="text-dark">Aktif</option>
-                        <% } %>
+                      <% } else { %>
+                      <option class = "text-dark"><%= oyun_setting.Bakim_Status %></option>
+                    <% if(oyun_setting.Bakim_Status === "Aktif"){ %>
+                        <option class="text-dark">Aktif</option>
+                      <% } else { %>
+                        <option class="text-dark">Pasif</option>
+                      <% } %>
+                    <% } %>
                       </select>
                     </div>
                   </div>
