@@ -73,8 +73,13 @@
     </div>
   </div>
   <script>$(".obstacle").keyup(function (){
-    if (this.value.match(/[^a-z0-9-]/g)){
-       this.value = this.value.replace(/[^a-z0-9-]/g,'');
+
+    const charatcers = "Ü Ğ Ş Ç Ö ğ ı ü ş ö ç + - * / ! ' ^ + % & / ( ) = ? _".split(" ");
+
+    for(let i = 0; i < charatcers.length; i++){
+      if (this.value.match(charatcers[i])){
+        this.value = this.value.replace(charatcers[i],'');
+      }
     }
  });</script>
       <%- include("../partials/footer") %>
