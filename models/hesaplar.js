@@ -27,6 +27,7 @@ const Hesaplar = sequelize.define("Hesaplar", {
     ipAdress: {
         type: Sequelize.STRING,
         allowNull: true,
+        defaultValue: 0
     },
     NickUpdateDate : {
         type: Sequelize.STRING

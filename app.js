@@ -1,7 +1,6 @@
 const express = require('express')
 const session = require('express-session')
 var flash = require('connect-flash');
-const Yetkililer = require('./models/yetkililer');
 const app = express();
 
 app.use(session({
