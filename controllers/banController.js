@@ -32,7 +32,7 @@ module.exports.getHwidBanPage = (req, res) => {
         .then(account => {
             if (account === null) {
                 req.flash("danger", "Kullanıcı Hwid Ban Listesinde Bulunamadı.")
-                res.redirect("/admin/ban")
+                res.redirect("/admin/ban/list")
             } else {
                 Hesaplar.findOne({ where: { PlayerNick: req.params.nick } })
                     .then(hesap => {

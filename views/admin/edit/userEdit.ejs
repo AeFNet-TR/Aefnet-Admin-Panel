@@ -3,6 +3,20 @@
 <div class="content">
     <div class="container-fluid">
       <div class="row">
+        <div class="col-md-6">
+          <% if(messages[0]){ %>
+            <div class="alert alert-danger alert-dismissible fade show" style="width: 440px; float: left;" role="alert">
+              <%= messages %>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+         <% } else { %>
+         
+         <% } %>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-5">
           <div class="card">
             <div class="card-header card-header-primary">

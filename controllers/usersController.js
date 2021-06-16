@@ -1,30 +1,31 @@
+const { Op } = require("sequelize");
 const Hesaplar = require("../models/hesaplar")
 const Hwid_Ban = require("../models/hwid_Ban")
 
-module.exports.getUsersPage = (req,res) => {
+module.exports.getUsersPage = (req, res) => {
 
     Hesaplar.findAll()
-    .then((users) => {
-        res.render("admin/userList",{users, messages: req.flash("success")});
-    })
-    .catch((err) => {
-        console.error(err)
-    })
+        .then((users) => {
+            res.render("admin/userList", { users, messages: req.flash("success") });
+        })
+        .catch((err) => {
+            console.error(err)
+        })
 
 }
 
-module.exports.getUserEditPage = (req,res) => {
+module.exports.getUserEditPage = (req, res) => {
 
-    Hesaplar.findOne({where: {ID: req.params.id}})
-    .then((user) => {
-        res.render("admin/edit/userEdit", {foundUser: user})
-    })
-    .catch(err => {
-        console.error(err)
-    })
+    Hesaplar.findOne({ where: { ID: req.params.id } })
+        .then((user) => {
+            res.render("admin/edit/userEdit", { foundUser: user, messages: req.flash("danger") })
+        })
+        .catch(err => {
+            console.error(err)
+        })
 }
 
-module.exports.postUserEditPage = (req,res) => {
+module.exports.postUserEditPage = (req, res) => {
 
     Hesaplar.findOne({where: {ID: req.params.id}})
     .then((user) => {
@@ -41,60 +42,100 @@ module.exports.postUserEditPage = (req,res) => {
     .catch(err => {
         console.error(err)
     })
+}
+
+module.exports.getUserDeletePage = (req, res) => {
+
+    Hesaplar.findOne({ where: { PlayerNick: req.params.nick } })
+        .then((user) => {
+            return user.destroy();
+        })
+        .then(() => {
+
+            Hwid_Ban.findOne({ where: { PLAYER_NICK: req.params.nick } })
+                .then(deletedUser => {
+
+                    if (deletedUser === null) {
+
+                    } else {
+                        return deletedUser.destroy();
+                    }
+                })
+                .then(() => {
+                    req.flash("success", "Kullanıcı başarıyla silindi.")
+                    res.redirect("/admin/users")
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+
+        })
+        .catch(err => {
+            req.flash("danger", "Kullanıcı silinemedi.")
+            res.redirect("/admin/users")
+        })
 
 }
 
-module.exports.getUserDeletePage = (req,res) => {
+module.exports.getAddUserPage = (req, res) => {
 
-    Hesaplar.findOne({where: {PlayerNick: req.params.nick}})
-    .then((user) => {
-       return user.destroy();
+    res.render("admin/add/userAdd", { messages: req.flash("danger") })
+}
+
+module.exports.postAddUserPage = (req, res) => {
+
+
+    Hesaplar.findOne({
+        where: {
+            [Op.or]: [
+                { PlayerNick: req.body.player_nick },
+                { Email: req.body.email }
+            ]
+        }
     })
-    .then(() => {
-
-        Hwid_Ban.findOne({where: {PLAYER_NICK: req.params.nick}})
-        .then(deletedUser => {
-
-            if(deletedUser === null){
-
-            } else {
-                return deletedUser.destroy();
+        .then(foundUser => {
+            if (foundUser.Email === req.body.email && foundUser.PlayerNick === req.body.player_nick) {
+                req.flash("danger", "Bu nick ve email başkası tarafından kullanılıyor.")
+                res.redirect("/admin/users/add")
             }
-        })
-        .then(() => {
-            req.flash("success","Kullanıcı başarıyla silindi.")
-            res.redirect("/admin/users")
+            else if (foundUser.PlayerNick === req.body.player_nick) {
+                req.flash("danger", "Bu nick başkası tarafından kullanılıyor.")
+                res.redirect("/admin/users/add")
+
+            } else if (foundUser.Email === req.body.email) {
+                req.flash("danger", "Bu email başkası tarafından kullanılıyor.")
+                res.redirect("/admin/users/add")
+            }
+            else {
+                Hesaplar.create({
+                    Email: req.body.email,
+                    Password: req.body.password,
+                    PlayerNick: req.body.player_nick,
+                    NickUpdateDate: req.body.nick_update_date
+                })
+                    .then(() => {
+                        res.redirect("/admin/users")
+                    })
+                    .catch(err => {
+                        console.error(err)
+                    })
+            }
         })
         .catch(err => {
             console.log(err)
+            Hesaplar.create({
+                Email: req.body.email,
+                Password: req.body.password,
+                PlayerNick: req.body.player_nick,
+                NickUpdateDate: req.body.nick_update_date
+            })
+                .then(() => {
+                    res.redirect("/admin/users")
+                })
+                .catch(err => {
+                    console.error(err)
+                })
+
         })
-        
-    })
-    .catch(err => {
-        req.flash("danger","Kullanıcı silinemedi.")
-        res.redirect("/admin/users")
-    })
-
-}
-
-module.exports.getAddUserPage = (req,res) => {
-
-    res.render("admin/add/userAdd")
-}
-
-module.exports.postAddUserPage = (req,res) => {
-
-    Hesaplar.create({
-        Email: req.body.email,
-        Password: req.body.password,
-        PlayerNick: req.body.player_nick,
-        NickUpdateDate: req.body.nick_update_date
-    })
-    .then(() => {
-        res.redirect("/admin/users")
-    })
-    .catch(err => {
-        console.error(err)
-    })
 
 }
