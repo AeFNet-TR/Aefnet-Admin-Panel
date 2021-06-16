@@ -39,7 +39,7 @@
                         <% if(user.Role === "Moderator"){ %>
                           <td><a data-toggle="modal" data-target="#modalError" class="btn btn-danger">Banı Kaldır</a></td>
                         <% } else {%>
-                        <td><a onclick="return confirm(' <%= h.PLAYER_NICK %> adli kişinin hwid banı ve hesap bani kaldırılacaktır. Onaylıyor musunuz?')" href="/admin/unban/hwid/<%= h.PLAYER_NICK %>" class="btn btn-danger">Banı Kaldır</a></td>
+                        <td><a onclick="return confirm(' <%= h.PLAYER_NICK %> Adli Kişinin Hwid Bani Ve Hesap Bani Kaldırılacaktır. Onaylıyor Musunuz?')" href="/admin/unban/hwid/<%= h.PLAYER_NICK %>" class="btn btn-danger">Banı Kaldır</a></td>
                         <% } %>
                       </tr>
                       <% }) %>
@@ -66,7 +66,7 @@
                         <tr>
                         <td><%= a.ID %></td>
                         <td><%= a.PlayerNick %></td>
-                        <td><a  onclick="return confirm(' <%= a.PlayerNick %> adlı kişinin hesap banı kaldırılacaktır. Onaylıyor musunuz?')" href="/admin/unban/account/<%= a.PlayerNick %>"  class="btn btn-danger">Banı Kaldır</a></td>
+                        <td><a  onclick="return confirm(' <%= a.PlayerNick %> Adli Kişinin Hesap Bani Kaldırılacaktır. Onaylıyor Musunuz?')" href="/admin/unban/account/<%= a.PlayerNick %>"  class="btn btn-danger">Banı Kaldır</a></td>
                       </tr>
                       <% }) %>
                     </tbody>

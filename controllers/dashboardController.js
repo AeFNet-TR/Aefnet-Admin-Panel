@@ -13,10 +13,8 @@ module.exports.getDashboardPage = (req,res) => {
         .then((nowOnlineUsers) => {
             Hesaplar.count({where: {status: "Pasif"}})
             .then(bannedUsers => {
-
                 Hesaplar.count()
                 .then(totalUsers => {
-                   
                     Sayac.count()
                     .then(onlineUsersCountControl => {
                         if(onlineUsersCountControl === 0) {
@@ -28,17 +26,14 @@ module.exports.getDashboardPage = (req,res) => {
                     .catch(err => {
                         console.log(err)
                     })
-                   
                 })
                 .catch(err => {
                     console.log(err)
                 })
-
             })
             .catch(err => {
                 console.log(err)
             })
-
         })
         .catch((error) => {
             console.log(error)

@@ -12,7 +12,7 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                   Bu Sayfa'ya Erişim Yetkiniz Yok !
+                   Bu İşlem İcin Erişim Yetkiniz Yok !
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
@@ -62,10 +62,10 @@
                           <td><%= foundUser.ipAdress %></td>
                           <td>
                             <% if(user.Role === "Kurucu"){ %>
-                            <a href="/admin/edit/user/<%= foundUser.ID %>" class="btn btn-primary">Düzenle</a>&nbsp; &nbsp; <a class="btn btn-danger" onclick="return confirm('<%= foundUser.PlayerNick %> adlı kişiyi silmek istediğinizden emin misiniz?')" href="/admin/delete/user/<%= foundUser.ID %>">Sil</a>
+                            <a href="/admin/edit/user/<%= foundUser.ID %>" class="btn btn-primary">Düzenle</a>&nbsp; &nbsp; <a class="btn btn-danger" onclick="return confirm('<%= foundUser.PlayerNick %> Adlı Kişiyi Silmek İstediğinizden Emin Misiniz?')" href="/admin/delete/user/<%= foundUser.ID %>">Sil</a>
                             <% }  else { %>
                               <% if(user.Role === "Admin"){ %>
-                                <a href="/admin/edit/user/<%= foundUser.ID %>" class="btn btn-primary">Düzenle</a>&nbsp; &nbsp; <a onclick="return confirm('<%= foundUser.PlayerNick %> adlı kişiyi silmek istediğinizden emin misiniz?')" href="/admin/delete/user/<%= foundUser.ID %>" class="btn btn-danger">Sil</a>
+                                <a href="/admin/edit/user/<%= foundUser.ID %>" class="btn btn-primary">Düzenle</a>&nbsp; &nbsp; <a onclick="return confirm('<%= foundUser.PlayerNick %> Adlı Kişiyi Silmek İstediğinizden Emin Misiniz?')" href="/admin/delete/user/<%= foundUser.ID %>" class="btn btn-danger">Sil</a>
                                 <% } else {%>
                                   <% if(user.Role === "Moderator"){ %>
                                     <button data-toggle="modal" data-target="#modalError" class="btn btn-primary">Düzenle</button>&nbsp; &nbsp; <button data-toggle="modal" data-target="#modalError" class="btn btn-danger">Sil</button>

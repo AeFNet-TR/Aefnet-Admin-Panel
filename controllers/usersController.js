@@ -40,9 +40,7 @@ module.exports.postUserEditPage = (req,res) => {
     .catch(err => {
         console.error(err)
     })
-
 }
-
 module.exports.getUserDeletePage = (req,res) => {
 
     Hesaplar.findOne({where: {ID: req.params.id}})
@@ -50,11 +48,11 @@ module.exports.getUserDeletePage = (req,res) => {
        return user.destroy();
     })
     .then(() => {
-        req.flash("success","Kullanıcı başarıyla silindi.")
+        req.flash("success","Kullanıcı Başarıyla Silindi.")
         res.redirect("/admin/users")
     })
     .catch(err => {
-        req.flash("danger","Kullanıcı silinemedi.")
+        req.flash("danger","Kullanıcı Silinemedi.")
         res.redirect("/admin/users")
     })
 
