@@ -1,4 +1,5 @@
 const Hesaplar = require("../models/hesaplar")
+const Hwid_Ban = require("../models/hwid_Ban")
 
 module.exports.getUsersPage = (req,res) => {
 
@@ -40,19 +41,32 @@ module.exports.postUserEditPage = (req,res) => {
     .catch(err => {
         console.error(err)
     })
+
 }
+
 module.exports.getUserDeletePage = (req,res) => {
 
-    Hesaplar.findOne({where: {ID: req.params.id}})
+    Hesaplar.findOne({where: {PlayerNick: req.params.nick}})
     .then((user) => {
        return user.destroy();
     })
     .then(() => {
-        req.flash("success","Kullanıcı Başarıyla Silindi.")
-        res.redirect("/admin/users")
+
+        Hwid_Ban.findOne({where: {PLAYER_NICK: req.params.nick}})
+        .then(deletedUser => {
+            return deletedUser.destroy();
+        })
+        .then(() => {
+            req.flash("success","Kullanıcı başarıyla silindi.")
+            res.redirect("/admin/users")
+        })
+        .catch(err => {
+            console.log(err)
+        })
+        
     })
     .catch(err => {
-        req.flash("danger","Kullanıcı Silinemedi.")
+        req.flash("danger","Kullanıcı silinemedi.")
         res.redirect("/admin/users")
     })
 

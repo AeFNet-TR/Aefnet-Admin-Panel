@@ -48,7 +48,7 @@
                           <td><%= hesap.ipAdress %></td>
                           <td>
                             <% if(user.Role === "Moderator"){ %>
-                              <a onclick="return confirm('<%= hesap.PlayerNick %> Adli Kişiye Hesap Banı Atılacaktır. Onaylıyor Musunuz?')" href="/admin/ban/account/<%= hesap.PlayerNick %>" class="btn btn-danger">Hesap Banı At</a>&nbsp; &nbsp; <a data-toggle="modal" data-target="#modalError" class="btn btn-danger">Hwid Ban At</a>
+                              <a onclick="return confirm('<%= hesap.PlayerNick %> Adli Kişiye Hesap Banı Atılacaktır. Onaylıyor Musunuz?')" href="/admin/ban/hwid/<%= hesap.PlayerNick %>" class="btn btn-danger">Hesap Banı At</a>&nbsp; &nbsp; <a data-toggle="modal" data-target="#modalError" class="btn btn-danger">Hwid Ban At</a>
                             <% } else { %>
                               <a onclick="return confirm('<%= hesap.PlayerNick %> Adli Kişiye Hesap Banı Atılacaktır. Onaylıyor Musunuz?')" href="/admin/ban/account/<%= hesap.PlayerNick %>" class="btn btn-danger" >Hesap Banı At</a>&nbsp; &nbsp; <a onclick="return confirm('<%= hesap.PlayerNick %> adlı kişiye hwid banı atılacaktır. Onaylıyor musunuz?')" href="/admin/ban/hwid/<%= hesap.PlayerNick %>" class="btn btn-danger">Hwid Ban At</a>
                             <% } %>

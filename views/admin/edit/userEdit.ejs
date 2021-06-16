@@ -28,13 +28,13 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Oyuncu Adı</label>
-                      <input type="text" name = "playerNick" value="<%= foundUser.PlayerNick %>" maxlength="12" class="form-control username" required>
+                      <input type="text" name = "playerNick" value="<%= foundUser.PlayerNick %>" maxlength="12" class="form-control obstacle" required>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Son nick değiştirme tarihi</label>
-                      <input type="text" name = "nickUpdateDate" value="<%= foundUser.NickUpdateDate %>" class="form-control" required>
+                      <input type="text" name = "nickUpdateDate" maxlength="10" value="<%= foundUser.NickUpdateDate %>" class="form-control" required>
                     </div>
                   </div>
                 </div>
@@ -48,9 +48,17 @@
       </div>
     </div>
   </div>
-  <script>$(".obstacle").keyup(function (){
+  <script>
+  
+  $(".obstacle").keyup(function (){
+   if (this.value.match(/[^a-zA-Z0-9]/g)){
+      this.value = this.value.replace(/[^a-zA-Z0-9]/g,"");
+   }
+  });
 
-    const charatcers = "Ü Ğ Ş Ç Ö İ ğ ı ü ş ö ç + - * / ! ' ^ + % & ( ) = ? [ ] } { : ; , .".split(" ");
+  $(".obstacle").keyup(function (){
+
+    const charatcers = "Ü Ğ Ş Ç Ö İ ğ ı ü ş ö ç".split(" ");
 
     for(let i = 0; i < charatcers.length; i++){
       if (this.value.match(charatcers[i])){

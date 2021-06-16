@@ -18,6 +18,24 @@
             </div>
           </div>
         </div>
+        <div class="modal fade" id="modalError2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Hata Mesajı</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Yetkiniz yok.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
           <div class="row">
             <div class="col-lg-6 col-md-12">
               <div class="card">
@@ -66,7 +84,12 @@
                         <tr>
                         <td><%= a.ID %></td>
                         <td><%= a.PlayerNick %></td>
-                        <td><a  onclick="return confirm(' <%= a.PlayerNick %> Adli Kişinin Hesap Bani Kaldırılacaktır. Onaylıyor Musunuz?')" href="/admin/unban/account/<%= a.PlayerNick %>"  class="btn btn-danger">Banı Kaldır</a></td>
+                        <td><a  onclick="return confirm(' <%= a.PlayerNick %> Adli Kişinin Hesap Bani Kaldırılacaktır. Onaylıyor Musunuz?')" href="/admin/unban/account/<%= a.PlayerNick %>"  class="btn btn-danger">Banı Kaldır</a>&nbsp; &nbsp;
+                        <% if(user.Role === "Moderator"){ %>
+                          <button data-toggle="modal" data-target="#modalError2" class="btn btn-danger">Hwid Ban At</button></td>
+                        <% } else { %>
+                          <a  onclick="return confirm(' <%= a.PlayerNick %> Adli Kişinin Hesap Bani Kaldırılacaktır. Onaylıyor Musunuz?')" href="/admin/ban/hwid/<%= a.PlayerNick %>"  class="btn btn-danger">Hwid Ban At</a></td>
+                        <% } %>
                       </tr>
                       <% }) %>
                     </tbody>

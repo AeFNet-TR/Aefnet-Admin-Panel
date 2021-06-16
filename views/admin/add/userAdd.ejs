@@ -28,13 +28,13 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Oyuncu Nicki</label>
-                      <input type="text" name = "player_nick" class="form-control username" maxlength="12" required>
+                      <input type="text" name = "player_nick" class="form-control obstacle" maxlength="12" required>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Güncel Nick Değiştirme Tarihi</label>
-                      <input type="text" name = "nick_update_date" class="form-control" required>
+                      <input type="text" name = "nick_update_date" maxlength="10" class="form-control" required>
                     </div>
                   </div>
                 </div><br>
@@ -48,12 +48,21 @@
       </div>
     </div>
   </div>
-  <script>$(".obstacle").keyup(function (){
+  <script>
+  
+  $(".obstacle").keyup(function (){
+   if (this.value.match(/[^a-zA-Z0-9]/g)){
+      this.value = this.value.replace(/[^a-zA-Z0-9]/g,"");
+   }
+});
+  
+  $(".obstacle").keyup(function (){
 
-    const charatcers = "Ü Ğ Ş Ç Ö İ ğ ı ü ş ö ç + - * / ! ' ^ + % & ( ) = ? [ ] } { : ; , .".split(" ");
+    const charatcers = "Ü Ğ Ş Ç Ö İ ğ ı ü ş ö ç".split(" ");
 
     for(let i = 0; i < charatcers.length; i++){
       if (this.value.match(charatcers[i])){
+        console.log(charatcers[i])
         this.value = this.value.replace(charatcers[i],'');
       }
     }
