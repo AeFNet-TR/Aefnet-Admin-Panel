@@ -54,7 +54,12 @@ module.exports.getUserDeletePage = (req,res) => {
 
         Hwid_Ban.findOne({where: {PLAYER_NICK: req.params.nick}})
         .then(deletedUser => {
-            return deletedUser.destroy();
+
+            if(deletedUser === null){
+
+            } else {
+                return deletedUser.destroy();
+            }
         })
         .then(() => {
             req.flash("success","Kullanıcı başarıyla silindi.")
