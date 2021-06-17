@@ -62,7 +62,7 @@ module.exports.getUserDeletePage = (req, res) => {
                     }
                 })
                 .then(() => {
-                    req.flash("success", "Kullanıcı başarıyla silindi.")
+                    req.flash("success", "Kullanıcı Başarıyla Silindi.")
                     res.redirect("/admin/users")
                 })
                 .catch(err => {
@@ -71,7 +71,7 @@ module.exports.getUserDeletePage = (req, res) => {
 
         })
         .catch(err => {
-            req.flash("danger", "Kullanıcı silinemedi.")
+            req.flash("danger", "Kullanıcı Silinemedi.")
             res.redirect("/admin/users")
         })
 
@@ -95,15 +95,15 @@ module.exports.postAddUserPage = (req, res) => {
     })
         .then(foundUser => {
             if (foundUser.Email === req.body.email && foundUser.PlayerNick === req.body.player_nick) {
-                req.flash("danger", "Bu nick ve email başkası tarafından kullanılıyor.")
+                req.flash("danger", "Bu Nick Ve Email Başkası Tarafından Kullanılıyor.")
                 res.redirect("/admin/users/add")
             }
             else if (foundUser.PlayerNick === req.body.player_nick) {
-                req.flash("danger", "Bu nick başkası tarafından kullanılıyor.")
+                req.flash("danger", "Bu Nick Başkası Tarafından Kullanılıyor.")
                 res.redirect("/admin/users/add")
 
             } else if (foundUser.Email === req.body.email) {
-                req.flash("danger", "Bu email başkası tarafından kullanılıyor.")
+                req.flash("danger", "Bu Email Başkası Tarafından Kullanılıyor.")
                 res.redirect("/admin/users/add")
             }
             else {
