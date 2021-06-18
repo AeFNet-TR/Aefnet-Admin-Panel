@@ -28,20 +28,26 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">Rolü</label>
-                      <select class="form-control" name="role" id="exampleFormControlSelect1">
-                        <option class = "text-dark"><%= competent.Role %></option>
-                        <% if(competent.Role === "Kurucu"){ %>
-                          <option class="text-dark">Admin</option>
-                          <option class="text-dark">Moderator</option>
-                        <% } if(competent.Role === "Admin"){ %>
-                          <option class="text-dark">Kurucu</option>
-                          <option class="text-dark">Moderator</option>
-                        <% } %>
-                        <%  if(competent.Role === "Moderator"){ %>
-                          <option class="text-dark">Kurucu</option>
-                          <option class="text-dark">Admin</option>
-                        <% } %>
-                      </select>
+                      <% if(user.ID === competent.ID ){ %>
+                        <select class="form-control" name="role" id="exampleFormControlSelect1">
+                          <option class = "text-dark">Kurucu</option>
+                        </select>
+                      <% } else { %>
+                        <select class="form-control" name="role" id="exampleFormControlSelect1">
+                          <option class = "text-dark"><%= competent.Role %></option>
+                          <% if(competent.Role === "Kurucu"){ %>
+                            <option class="text-dark">Admin</option>
+                            <option class="text-dark">Moderator</option>
+                          <% } if(competent.Role === "Admin"){ %>
+                            <option class="text-dark">Kurucu</option>
+                            <option class="text-dark">Moderator</option>
+                          <% } %>
+                          <%  if(competent.Role === "Moderator"){ %>
+                            <option class="text-dark">Kurucu</option>
+                            <option class="text-dark">Admin</option>
+                          <% } %>
+                        </select>
+                      <% } %>
                     </div>
                   </div>
                 </div>
