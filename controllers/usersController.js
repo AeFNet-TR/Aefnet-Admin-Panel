@@ -95,7 +95,7 @@ module.exports.postAddUserPage = (req, res) => {
     })
         .then(foundUser => {
             if (foundUser.Email === req.body.email && foundUser.PlayerNick === req.body.player_nick) {
-                req.flash("danger", "Bu Nick Ve Email Başkası Tarafından Kullanılıyor.")
+                req.flash("danger", "Nick Veya Email Başkası Tarafından Kullanılıyor.")
                 res.redirect("/admin/users/add")
             }
             else if (foundUser.PlayerNick === req.body.player_nick) {

@@ -43,7 +43,7 @@ module.exports.getHwidBanPage = (req, res) => {
                     account.Status = "Pasif";
                     return account.save();
                 } else {
-                    req.flash("danger", "Bu Kullanıcıya Daha Önce Hwid Banı Atılmış.")
+                    req.flash("danger", "Kullanıcıya Daha Önce Hwid Banı Atılmış.")
                     res.redirect("/admin/ban/list")
                 }
             }
