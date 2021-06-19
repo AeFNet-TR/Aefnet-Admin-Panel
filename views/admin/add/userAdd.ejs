@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-6">
           <% if(messages[0]){ %>
-            <div class="alert alert-danger alert-dismissible fade show" style="width: 375px; float: left;" role="alert">
+            <div class="alert alert-danger alert-dismissible fade show" style="width: 330px; float: left;" role="alert">
               <%= messages %>
              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                <span aria-hidden="true">&times;</span>
@@ -63,7 +63,6 @@
     </div>
   </div>
   <script>
-  
   $(".obstacle").keyup(function (){
    if (this.value.match(/[^a-zA-Z0-9]/g)){
       this.value = this.value.replace(/[^a-zA-Z0-9]/g,"");

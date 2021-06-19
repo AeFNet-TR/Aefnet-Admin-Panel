@@ -39,7 +39,7 @@
         <div class="row">
           <div class="col-md-12">
             <% if(messages[0]){ %>
-              <div class="alert alert-danger alert-dismissible fade show" style="width: 370px; float: right;" role="alert">
+              <div class="alert alert-danger alert-dismissible fade show" style="width: 355px; float: right;" role="alert">
                 <%= messages %>
                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                  <span aria-hidden="true">&times;</span>
@@ -93,7 +93,6 @@
                       <th></th>
                     </thead>
                     <tbody>
-                    
                       <% account_bans.forEach(a => { %>
                         <tr>
                         <td><%= a.ID %></td>
