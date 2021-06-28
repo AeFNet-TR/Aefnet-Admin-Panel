@@ -59,7 +59,7 @@
                           <td><%= foundUser.Email %></td>
                           <td><%= foundUser.PlayerNick %></td>
                           <td><%= foundUser.NickUpdateDate %></td>
-                          <td><%= foundUser.ipAdress %></td>
+                          <td><%= foundUser.IPAdress %></td>
                           <td>
                             <% if(user.Role === "Kurucu"){ %>
                             <a href="/admin/edit/user/<%= foundUser.ID %>" class="btn btn-primary">Düzenle</a>&nbsp; &nbsp; <a class="btn btn-danger" onclick="return confirm('<%= foundUser.PlayerNick %> Adlı Kişiyi Silmek İstediğinizden Emin Misiniz?')" href="/admin/delete/user/<%= foundUser.PlayerNick %>">Sil</a>

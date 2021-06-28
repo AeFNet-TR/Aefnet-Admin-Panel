@@ -59,7 +59,7 @@
                           <td><%= hesap.Email %></td>
                           <td><%= hesap.PlayerNick %></td>
                           <td><%= hesap.NickUpdateDate %></td>
-                          <td><%= hesap.ipAdress %></td>
+                          <td><%= hesap.IPAdress %></td>
                           <td>
                             <% if(user.Role === "Moderator"){ %>
                               <a onclick="return confirm('<%= hesap.PlayerNick %> Adli Kişiye Hesap Banı Atılacaktır. Onaylıyor Musunuz?')" href="/admin/ban/hwid/<%= hesap.PlayerNick %>" class="btn btn-danger">Hesap Banı At</a>&nbsp; &nbsp; <a data-toggle="modal" data-target="#modalError" class="btn btn-danger">Hwid Ban At</a>

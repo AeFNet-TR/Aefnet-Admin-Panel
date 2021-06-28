@@ -72,7 +72,7 @@
         <div class="col-md-6">
           <div class="card">
             <div class="card-header card-header-primary">
-              <h4 class="card-title">Nick Engelleme Ayarları</h4>
+              <h4 class="card-title">Server Bakim Ayarlari</h4>
             </div>
             <div class="card-body">
               <form method = "POST">
@@ -84,7 +84,7 @@
                         <% if(nick === null){ %>
                         <textarea class="form-control obstacle" name = "nick_mesaj" rows="5" required></textarea>
                         <% } else { %>
-                          <textarea class="form-control obstacle" name = "nick_mesaj" rows="5" required><%= nick.Nick_Mesaj %></textarea>
+                          <textarea class="form-control obstacle" name = "nick_mesaj" rows="5" required><%= nick.SERVEROFF_MESAJ %></textarea>
                         <% } %>
                       </div>
                     </div>
@@ -97,8 +97,8 @@
                           <option class="text-dark">Pasif</option>
                           <option class="text-dark">Aktif</option>
                       <% } else { %>
-                      <option class = "text-dark"><%= nick.Nick_Status %></option>
-                    <% if(nick.Nick_Status === "Aktif"){ %>
+                      <option class = "text-dark"><%= nick.SERVER_STATUS %></option>
+                    <% if(nick.SERVER_STATUS === "Aktif"){ %>
                         <option class="text-dark">Pasif</option>
                       <% } else { %>
                         <option class="text-dark">Aktif</option>

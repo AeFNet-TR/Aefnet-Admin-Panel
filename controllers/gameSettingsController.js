@@ -23,8 +23,8 @@ module.exports.updateAnnouncement = (req,res) => {
 
         PlayerNick_Settings.findOne({where: {ID: 1}})
         .then(nick => {
-            nick.Nick_Mesaj = req.body.nick_mesaj;
-            nick.Nick_Status = req.body.nick_status;
+            nick.SERVEROFF_MESAJ = req.body.nick_mesaj;
+            nick.SERVER_STATUS = req.body.nick_status;
     
             return nick.save();
         })

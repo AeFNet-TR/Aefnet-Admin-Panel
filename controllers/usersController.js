@@ -33,6 +33,8 @@ module.exports.postUserEditPage = (req, res) => {
         user.Password = req.body.password;
         user.PlayerNick = req.body.playerNick;
         user.NickUpdateDate = req.body.nickUpdateDate;
+        user.GuvenlikSorusu = req.body.Guvenlik;
+        user.SoruYaniti = req.body.Soru;
 
         return user.save();
     })
@@ -111,7 +113,10 @@ module.exports.postAddUserPage = (req, res) => {
                     Email: req.body.email,
                     Password: req.body.password,
                     PlayerNick: req.body.player_nick,
-                    NickUpdateDate: req.body.nick_update_date
+                    NickUpdateDate: req.body.nick_update_date,
+                    GuvenlikSorusu: req.body.GuvenlikSorusu,
+                    SoruYaniti: req.body.SoruYaniti
+
                 })
                     .then(() => {
                         res.redirect("/admin/users")
@@ -127,7 +132,9 @@ module.exports.postAddUserPage = (req, res) => {
                 Email: req.body.email,
                 Password: req.body.password,
                 PlayerNick: req.body.player_nick,
-                NickUpdateDate: req.body.nick_update_date
+                NickUpdateDate: req.body.nick_update_date,
+                GuvenlikSorusu: req.body.GuvenlikSorusu,
+                SoruYaniti: req.body.SoruYaniti
             })
                 .then(() => {
                     res.redirect("/admin/users")

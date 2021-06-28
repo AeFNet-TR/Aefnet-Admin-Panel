@@ -8,31 +8,11 @@ const Hwid_Ban = sequelize.define('Hwid_Ban', {
         allowNull: false,
         autoIncrement: true
     },
-    PLAYER_NICK : {
+    Player_Nick: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    UUID: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    SID: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    WINSERIAL: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    CHIPSETSERIAL: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    BIOSSERIAL:{
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    CPUADRES: {
+    PC_Parmak_izi: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -42,5 +22,4 @@ const Hwid_Ban = sequelize.define('Hwid_Ban', {
         defaultValue:"Aktif"
     }
 })
-
 module.exports = Hwid_Ban;

@@ -28,7 +28,7 @@ module.exports.getAccountBanPage = (req, res) => {
 
 module.exports.getHwidBanPage = (req, res) => {
 
-    Hwid_Ban.findOne({ where: { PLAYER_NICK: req.params.nick } })
+    Hwid_Ban.findOne({ where: { Player_Nick: req.params.nick } })
         .then(account => {
             if (account === null) {
                 req.flash("danger", "Kullanıcı Hwid Ban Sisteminde Bulunamadı.")
@@ -81,7 +81,7 @@ module.exports.getUnbanAccountPage = (req, res) => {
 }
 
 module.exports.getUnbanHwidPage = (req, res) => {
-    Hwid_Ban.findOne({ where: { PLAYER_NICK: req.params.nick } })
+    Hwid_Ban.findOne({ where: { Player_Nick: req.params.nick } })
         .then(bannedUser => {
             bannedUser.Status = "Aktif"
 

@@ -42,13 +42,27 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Oyuncu Adı</label>
-                      <input type="text" name = "playerNick" value="<%= foundUser.PlayerNick %>" maxlength="12" class="form-control obstacle" required>
+                      <input type="text" name="playerNick" value="<%= foundUser.PlayerNick %>" maxlength="12" class="form-control obstacle" required>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Son nick değiştirme tarihi</label>
-                      <input type="text" name = "nickUpdateDate" maxlength="10" value="<%= foundUser.NickUpdateDate %>" class="form-control" required>
+                      <input type="text" name="nickUpdateDate" maxlength="10" value="<%= foundUser.NickUpdateDate %>" class="form-control" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Guvenlik Sorusu</label>
+                      <input type="text" name="Guvenlik" value="<%= foundUser.GuvenlikSorusu %>" maxlength="12" class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Soru'nun Yaniti</label>
+                      <input type="text" name = "Soru" maxlength="10" value="<%= foundUser.SoruYaniti %>" class="form-control" required>
                     </div>
                   </div>
                 </div>

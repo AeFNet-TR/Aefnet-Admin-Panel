@@ -67,11 +67,11 @@
                       <% hwid_bans.forEach(h => { %>
                         <tr>
                         <td><%= h.ID %></td>
-                        <td><%= h.PLAYER_NICK %></td>
+                        <td><%= h.Player_Nick %></td>
                         <% if(user.Role === "Moderator"){ %>
                           <td><a data-toggle="modal" data-target="#modalError" class="btn btn-danger">Banı Kaldır</a></td>
                         <% } else {%>
-                        <td><a onclick="return confirm(' <%= h.PLAYER_NICK %> Adli Kişinin Hwid Bani Kaldırılacaktır. Onaylıyor Musunuz?')" href="/admin/unban/hwid/<%= h.PLAYER_NICK %>" class="btn btn-danger">Banı Kaldır</a></td>
+                        <td><a onclick="return confirm(' <%= h.Player_Nick %> Adli Kişinin Hwid Bani Kaldırılacaktır. Onaylıyor Musunuz?')" href="/admin/unban/hwid/<%= h.Player_Nick %>" class="btn btn-danger">Banı Kaldır</a></td>
                         <% } %>
                       </tr>
                       <% }) %>

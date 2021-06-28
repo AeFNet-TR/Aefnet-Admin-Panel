@@ -1,18 +1,18 @@
 const Sequelize = require('sequelize');
 const sequelize = require("../utility/aefnet_LoginSystem");
 
-const PlayerNick_Settings = sequelize.define('PlayerNick_Setting', {
+const PlayerNick_Settings = sequelize.define('Server_Settings', {
     ID : {
         type: Sequelize.INTEGER,
         primaryKey: true,
         allowNull: false,
         autoIncrement: true
     },
-    Nick_Mesaj : {
+    SERVEROFF_MESAJ : {
         type: Sequelize.STRING,
         allowNull: false
     },
-    Nick_Status: {
+    SERVER_STATUS: {
         type: Sequelize.ENUM("Aktif","Pasif"),
         allowNull: false,
         defaultValue:"Pasif"

@@ -20,16 +20,20 @@ const Hesaplar = sequelize.define("Hesaplar", {
         type: Sequelize.STRING,
         allowNull: false,
     },
-    MacAdress: {
+    GuvenlikSorusu: {
         type: Sequelize.STRING,
-        allowNull: true,
+        allowNull: false,
     },
-    ipAdress: {
+    SoruYaniti: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    IPAdress: {
         type: Sequelize.STRING,
         allowNull: true,
         defaultValue: 0
     },
-    NickUpdateDate : {
+    NickUpdateDate: {
         type: Sequelize.STRING
     },
     Status: {
@@ -37,5 +41,4 @@ const Hesaplar = sequelize.define("Hesaplar", {
         defaultValue: "Aktif"
     }
 });
-
 module.exports = Hesaplar;
